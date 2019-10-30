@@ -9,9 +9,8 @@ const forecast = (latitude, longitude, callback) => {
             callback("Unable to find location...", undefined);
         } else {
             callback(undefined,
-                'It is currently ' + body.currently.temperature + ' degrees out. ' +
-                body.daily.data[0].summary + ' There is ' + body.currently.precipProbability*100 + '% chance of ' + (body.currently.precipProbability===0?'precipitation':body.currently.precipType) + '.'
-                
+                'It is currently ' + body.currently.temperature + '° out. ' +
+                body.daily.data[0].summary + ' There is ' + body.currently.precipProbability*100 + '% chance of ' + (body.currently.precipProbability===0?'precipitation':body.currently.precipType) + '. The high for today will be ' + body.daily.data[0].temperatureHigh + '°, with a low of ' + body.daily.data[0].temperatureLow + '°.'
             )
         }
     })
